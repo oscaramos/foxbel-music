@@ -1,3 +1,7 @@
 .homepage-container {
   padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }

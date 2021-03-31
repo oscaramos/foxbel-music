@@ -1,21 +1,27 @@
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { ISong } from "../../../../../../services/songs/search";
+
 import "./song-card.styles.scss";
 
-export function SongCard() {
+type IProps = {
+  song: ISong;
+};
+
+export function SongCard({ song }: IProps) {
   return (
     <div className="song-card">
       <div className="song-card__image-container">
         <img
-          src="https://picsum.photos/200"
-          alt="song-card-example"
+          src={`${song.album.cover_medium}`}
+          alt={`song-card-${song.id}`}
           className="song-card__image"
         />
         <FontAwesomeIcon icon={faEllipsisV} className="song-card__menu" />
       </div>
-      <div className="song-card__title">Song card title</div>
-      <div className="song-card__artist">Song card artist</div>
+      <div className="song-card__title">{song.title}</div>
+      <div className="song-card__artist">{song.artist.name}</div>
     </div>
   );
 }

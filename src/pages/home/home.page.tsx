@@ -1,13 +1,13 @@
-import { Button } from 'react-bootstrap';
+import { Header } from "./components/header/header.component";
+
+import "./home.page.scss";
 
 function HomePage() {
   return (
     <div>
-      HomePage
-      <br/>
-      <Button>Ok</Button>
+      <Header />
     </div>
   );
-};
+}
 
 export default HomePage;

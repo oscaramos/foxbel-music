@@ -1,0 +1,19 @@
+$height: 40px;
+
+.searcher {
+  position: relative;
+  height: $height;
+
+
+  .searcher__input {
+    border-radius: 20px;
+    height: $height;
+  }
+
+  .searcher__append {
+    position: absolute;
+    top: 30%;
+    right: 16px;
+    opacity: 30%;
+  }
+}

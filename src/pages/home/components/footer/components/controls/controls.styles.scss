@@ -1,0 +1,39 @@
+@import "../../../../../../theme/colors";
+
+$icon-color: white;
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+
+  .controls__backward {
+    color: $icon-color;
+    cursor: pointer;
+  }
+
+  .controls__play-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 60px;
+    height: 60px;
+
+    background-color: $light-red;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    .controls__play {
+      color: $icon-color
+    }
+  }
+
+  .controls__forward {
+    cursor: pointer;
+
+    color: $icon-color
+  }
+}

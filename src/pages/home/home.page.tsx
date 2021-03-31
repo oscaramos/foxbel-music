@@ -1,16 +1,16 @@
+import { Container } from "react-bootstrap";
+
 import { Header } from "./components/header/header.component";
-import { Footer } from "./components/footer/footer.component";
 import { Results } from "./components/results/results.component";
 
 import "./home.page.scss";
 
 function HomePage() {
   return (
-    <div>
+    <Container className="homepage-container">
       <Header />
       <Results />
-      <Footer />
-    </div>
+    </Container>
   );
 }
 

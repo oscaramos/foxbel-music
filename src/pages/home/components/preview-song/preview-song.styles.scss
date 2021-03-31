@@ -1,0 +1,62 @@
+@import "../../../../theme/colors";
+
+.preview-song {
+  display: flex;
+  flex-direction: row;
+
+  height: 250px;
+
+  background-color: $light-red;
+
+  .preview-song__image {
+    height: 100%;
+  }
+
+  .preview-song__right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 20px;
+
+    .preview-song__details {
+      .preview-song__song-name {
+        font-size: 22px;
+        font-weight: bold;
+        color: white;
+      }
+
+      .preview-song__album-name {
+        font-size: 14px;
+        font-weight: lighter;
+        color: white;
+      }
+
+      .preview-song__followers-count {
+        margin-left: 16px;
+
+        font-size: 10px;
+      }
+
+      .preview-song__description {
+        margin-top: 12px;
+
+        font-size: 12px;
+        color: white;
+        line-height: 20px;
+      }
+    }
+
+    .preview-song__actions {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+
+      .preview-song__menu {
+        cursor: pointer;
+      }
+    }
+  }
+
+}

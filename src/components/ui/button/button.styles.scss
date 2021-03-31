@@ -1,0 +1,23 @@
+@import "../../../theme/colors";
+
+.button {
+  width: 120px;
+  height: 30px;
+
+  border-radius: 100px;
+  outline: none;
+  border: 0;
+
+  font-weight: lighter;
+}
+
+.button--primary {
+  background-color: $primary-red;
+  color: white;
+}
+
+.button--outline {
+  color: $primary-red;
+  border: 1px solid $primary-red;
+  background-color: transparent;
+}

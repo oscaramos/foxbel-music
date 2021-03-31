@@ -12,9 +12,11 @@ export const requestSearch = async (
   if (usingMocks) {
     return songs;
   }
-  return await axios.get(
+
+  const response = await axios.get<ISearchResponse>(
     `https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${keyword}`
   );
+  return response.data;
 };
 
 export const transformSearch = (response: ISearchResponse): ISong[] => {

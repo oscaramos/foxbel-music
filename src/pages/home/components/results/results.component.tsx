@@ -6,15 +6,16 @@ import "./results.styles.scss";
 
 type Props = {
   songs: ISong[];
+  onSelectSong: (newSong: ISong) => void;
 };
 
-export function Results({ songs }: Props) {
+export function Results({ songs, onSelectSong }: Props) {
   return (
     <div className="results">
       <h5 className="results__title">Resultados</h5>
       <div className="results__list">
         {songs.map((song) => (
-          <SongCard song={song} />
+          <SongCard song={song} onSelect={() => onSelectSong(song)} />
         ))}
       </div>
     </div>

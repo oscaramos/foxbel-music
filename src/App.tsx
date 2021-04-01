@@ -1,15 +1,18 @@
 import HomePage from "./pages/home/home.page";
+
 import { Sidebar } from "./components/sidebar/sidebar.component";
 import { Footer } from "./components/footer/footer.component";
 
+import { PlayingSongProvider } from "./context/playing-song.context";
+
 function App() {
   return (
-    <div>
+    <PlayingSongProvider>
       <Sidebar>
         <HomePage />
       </Sidebar>
       <Footer />
-    </div>
+    </PlayingSongProvider>
   );
 }
 

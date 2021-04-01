@@ -21,6 +21,10 @@ $image-size: 160px;
     }
   }
 
+  .song-card__details {
+    cursor: pointer;
+  }
+
   .song-card__title {
     font-size: 14px;
     font-weight: bold;

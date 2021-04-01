@@ -1,26 +1,36 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { Button } from "../../../../components/ui/button/button.component";
 
+import { ISong } from "../../../../services/songs/search";
+
+import { usePlayingSong } from "../../../../context/playing-song.context";
+
 import "./preview-song.styles.scss";
 
-export function PreviewSong() {
+type Props = {
+  song: ISong;
+};
+
+export function PreviewSong({ song }: Props) {
+  const { changeSong } = usePlayingSong();
+
   return (
     <div className="preview-song">
       <img
-        src="https://picsum.photos/200"
-        alt=""
+        src={song.album.cover_big}
+        alt="song-cover"
         className="preview-song__image"
       />
 
       <div className="preview-song__right-side">
         <div className="preview-song__details">
-          <div className="preview-song__song-name">Song Name</div>
+          <div className="preview-song__song-name">{song.title}</div>
           <div>
-            <span className="preview-song__album-name">Album name</span>
+            <span className="preview-song__album-name">{song.album.title}</span>
             <span className="preview-song__followers-count">
-              Followers count
+              1000 seguidores
             </span>
           </div>
           <p className="preview-song__description">
@@ -31,7 +41,7 @@ export function PreviewSong() {
         </div>
 
         <div className="preview-song__actions">
-          <Button>Reproducir</Button>
+          <Button onClick={() => changeSong(song)}>Reproducir</Button>
           <Button variant="outline">Seguir</Button>
           <FontAwesomeIcon
             icon={faEllipsisH}

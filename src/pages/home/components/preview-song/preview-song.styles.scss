@@ -8,9 +8,24 @@
 
   background-color: $light-red;
 
-  .preview-song__image {
+  .preview-song__image-container {
+    position: relative;
     height: 100%;
+
+    .preview-song__image {
+      height: 100%;
+    }
+
+    .preview-song__play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      cursor: pointer;
+    }
   }
+
 
   .preview-song__right-side {
     display: flex;

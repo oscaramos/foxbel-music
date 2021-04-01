@@ -6,8 +6,6 @@ import {
   faStepForward,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { usePlayingSong } from "../../../../context/playing-song.context";
-
 import "./controls.styles.scss";
 
 type Props = {
@@ -16,10 +14,6 @@ type Props = {
 };
 
 export function Controls({ playing, toggle }: Props) {
-  const { song } = usePlayingSong();
-
-  if (!song) return null;
-
   return (
     <div className="controls">
       <FontAwesomeIcon

@@ -1,4 +1,4 @@
-import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
+import { faEllipsisH, faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { Button } from "../../../../components/ui/button/button.component";
@@ -16,13 +16,27 @@ type Props = {
 export function PreviewSong({ song }: Props) {
   const { changeSong } = usePlayingSong();
 
+  const handleClickPlay = () => {
+    changeSong(song, { startPlaying: true });
+  };
+
   return (
     <div className="preview-song">
-      <img
-        src={song.album.cover_big}
-        alt="song-cover"
-        className="preview-song__image"
-      />
+      <div className="preview-song__image-container">
+        <img
+          src={song.album.cover_big}
+          alt="song-cover"
+          className="preview-song__image"
+        />
+
+        <FontAwesomeIcon
+          icon={faPlay}
+          className="preview-song__play"
+          color="white"
+          size="4x"
+          onClick={handleClickPlay}
+        />
+      </div>
 
       <div className="preview-song__right-side">
         <div className="preview-song__details">

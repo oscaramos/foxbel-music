@@ -2,9 +2,14 @@ import React, { ReactNode, useState, createContext, useContext } from "react";
 
 import { ISong } from "../services/songs/search";
 
+type ChangeSongOptions = {
+  startPlaying: boolean;
+};
+
 type Return = {
   song?: ISong;
-  changeSong: (newSong: ISong) => void;
+  changeSong: (newSong: ISong, options?: ChangeSongOptions) => void;
+  options: ChangeSongOptions;
 };
 
 const PlayingSongContext = createContext<Return | undefined>(undefined);
@@ -13,11 +18,17 @@ type Props = {
   children: ReactNode;
 };
 
+const defaultOptions: ChangeSongOptions = {
+  startPlaying: false,
+};
+
 export function PlayingSongProvider({ children }: Props) {
   const [song, setSong] = useState<ISong | undefined>(undefined);
+  const [options, setOptions] = useState<ChangeSongOptions>(defaultOptions);
 
-  const onChangeSong = (newSong: ISong) => {
+  const onChangeSong: Return["changeSong"] = (newSong, options) => {
     setSong(newSong);
+    setOptions(options || defaultOptions);
   };
 
   return (
@@ -25,6 +36,7 @@ export function PlayingSongProvider({ children }: Props) {
       value={{
         song,
         changeSong: onChangeSong,
+        options,
       }}
     >
       {children}

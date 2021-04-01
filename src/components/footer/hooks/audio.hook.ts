@@ -1,5 +1,5 @@
 // inspired from https://stackoverflow.com/a/47686478
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 type Return = [
   boolean,
@@ -21,7 +21,7 @@ export function useAudio({ url }: Props): Return {
     setAudio(new Audio(url));
   }, [url]);
 
-  const toggle = () => setPlaying(!playing);
+  const toggle = useCallback(() => setPlaying((prev) => !prev), []);
 
   const changeVolume = (newVolume: number) => {
     audio.volume = newVolume;

@@ -5,7 +5,6 @@
   top: 0;
   left: 0;
 
-  width: 250px;
   height: 100vh;
 
   padding: 30px;
@@ -40,8 +39,22 @@
     }
   }
 
+  .sidebar__collapsed {
+    display: flex;
+    justify-content: center;
+  }
+
+  .sidebar__collapsed-bars {
+    cursor: pointer;
+  }
+
+  .sidebar__close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+  }
 }
 
 .page {
-  padding-left: 250px;
 }

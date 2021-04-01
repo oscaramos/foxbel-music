@@ -25,7 +25,7 @@ export function Sidebar({ children }: Props) {
   };
 
   useEffect(() => {
-    if (breakpoint === "xs") {
+    if (breakpoint === "sm" || breakpoint === "xs") {
       setCollapsed(true);
     } else {
       setCollapsed(false);

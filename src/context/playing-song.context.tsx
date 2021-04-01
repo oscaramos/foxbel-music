@@ -1,7 +1,6 @@
 import React, { ReactNode, useState, createContext, useContext } from "react";
 
 import { ISong } from "../services/songs/search";
-import search from "../services/songs/mock/search.mock.json";
 
 type Return = {
   song?: ISong;
@@ -15,7 +14,7 @@ type Props = {
 };
 
 export function PlayingSongProvider({ children }: Props) {
-  const [song, setSong] = useState<ISong | undefined>(search.data[0]);
+  const [song, setSong] = useState<ISong | undefined>(undefined);
 
   const onChangeSong = (newSong: ISong) => {
     setSong(newSong);

@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+# Foxbel Music 🎵
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Explore and enjoy the top songs from [deezer](https://www.deezer.com/mx/).
 
-## Available Scripts
+# Motivation
 
-In the project directory, you can run:
+Technical test
 
-### `yarn start`
+# Before running
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Request access to CORS anywhere [here](https://cors-anywhere.herokuapp.com/corsdemo)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Screenshots
 
-### `yarn test`
+## Wireframe
+<img src="./docs/wireframe.png" alt='Wireframe Screenshot' width='800' /> 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Result
+<img src="./docs/result.png" alt='Result Screenshot' width='800' /> 
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Play or pause song
+* Go to next or previous song
+* Fetch top songs from the [deezer](https://www.deezer.com/mx/) api
+* Explore the top songs
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Tools
 
-### `yarn eject`
+* [React](https://en.reactjs.org/) - Framework
+* [Typescript](https://www.typescriptlang.org/) - Superset of javascript
+* [SASS](https://sass-lang.com/) - CSS preprocessor
+* [Fontawesome](https://fontawesome.com/) - Icons
+* [Music provider](https://www.deezer.com/mx/) - Api to get songssts
+* [Lodash](https://lodash.com/) - Javascript utilities
+* [Bootstrap](https://getbootstrap.com/) - UI Components
+* [Axios](https://github.com/axios/axioshttps://github.com/axios/axios) - For HTTP requests
+* [SWR](https://swr.vercel.app/) - Data fetching & caching with axios
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Deployment
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[Vercel](https://foxbel-music-nine.vercel.app/) 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# To run this app
+1. Clone this repo
+2. Run ```npm install```
+3. Run ```npm start```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

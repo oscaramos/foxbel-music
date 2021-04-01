@@ -1,5 +1,7 @@
 import React, { ReactNode, useState, createContext, useContext } from "react";
 
+import { useStateWithHistory } from "react-use";
+
 import { ISong } from "../services/songs/search";
 
 type ChangeSongOptions = {
@@ -10,6 +12,10 @@ type Return = {
   song?: ISong;
   changeSong: (newSong: ISong, options?: ChangeSongOptions) => void;
   options: ChangeSongOptions;
+  stateHistory: {
+    back: () => void;
+    forward: () => void;
+  };
 };
 
 const PlayingSongContext = createContext<Return | undefined>(undefined);
@@ -23,7 +29,9 @@ const defaultOptions: ChangeSongOptions = {
 };
 
 export function PlayingSongProvider({ children }: Props) {
-  const [song, setSong] = useState<ISong | undefined>(undefined);
+  const [song, setSong, { back, forward }] = useStateWithHistory<
+    ISong | undefined
+  >();
   const [options, setOptions] = useState<ChangeSongOptions>(defaultOptions);
 
   const onChangeSong: Return["changeSong"] = (newSong, options) => {
@@ -37,6 +45,10 @@ export function PlayingSongProvider({ children }: Props) {
         song,
         changeSong: onChangeSong,
         options,
+        stateHistory: {
+          back,
+          forward,
+        },
       }}
     >
       {children}

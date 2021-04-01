@@ -10,7 +10,11 @@ import { usePlayingSong } from "../../context/playing-song.context";
 import "./footer.styles.scss";
 
 export function Footer() {
-  const { song, options } = usePlayingSong();
+  const {
+    song,
+    options,
+    stateHistory: { back, forward },
+  } = usePlayingSong();
 
   const [playing, { toggle, changeVolume }] = useAudio({
     url: song?.preview ?? "",
@@ -37,7 +41,12 @@ export function Footer() {
   return (
     <footer className="footer">
       <PlayingSong song={song} />
-      <Controls playing={playing} toggle={toggle} />
+      <Controls
+        playing={playing}
+        toggle={toggle}
+        onBack={back}
+        onForward={forward}
+      />
       <Volume onChangeVolume={handleChangeVolume} />
     </footer>
   );

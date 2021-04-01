@@ -9,10 +9,18 @@ import {
 
 import "./volume.styles.scss";
 
-export function Volume() {
+type Props = {
+  onChangeVolume: (newVolume: number) => void;
+};
+
+export function Volume({ onChangeVolume }: Props) {
   const [volume, setVolume] = useState(50);
   const [status, setStatus] = useState<VolumeStatusValues>("down");
   const [muted, setMuted] = useState(false);
+
+  const toggleMuted = () => {
+    setMuted((prev) => !prev);
+  };
 
   useEffect(() => {
     if (muted) {
@@ -26,9 +34,13 @@ export function Volume() {
     }
   }, [volume, muted]);
 
-  const toggleMuted = () => {
-    setMuted((prev) => !prev);
-  };
+  useEffect(() => {
+    if (muted) {
+      onChangeVolume(0);
+    } else {
+      onChangeVolume(volume);
+    }
+  }, [muted, volume, onChangeVolume]);
 
   return (
     <div className="volume">

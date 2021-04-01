@@ -1,12 +1,12 @@
-import { usePlayingSong } from "../../../../context/playing-song.context";
+import { ISong } from "../../../../services/songs/search";
 
 import "./playing-song.scss";
 
-export function PlayingSong() {
-  const { song } = usePlayingSong();
+type Props = {
+  song: ISong;
+};
 
-  if (!song) return null;
-
+export function PlayingSong({ song }: Props) {
   return (
     <div className="playing-song">
       <img

@@ -19,6 +19,17 @@ $image-size: 160px;
       color: white;
       cursor: pointer;
     }
+
+    .song-card__play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      color: white;
+
+      cursor: pointer;
+    }
   }
 
   .song-card__details {

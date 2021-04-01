@@ -18,7 +18,13 @@ export function useAudio({ url }: Props): Return {
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
-    setAudio(new Audio(url));
+    setAudio((prev) => {
+      // stop previous music
+      prev.pause();
+      prev.currentTime = 0;
+
+      return new Audio(url);
+    });
   }, [url]);
 
   const toggle = useCallback(() => setPlaying((prev) => !prev), []);

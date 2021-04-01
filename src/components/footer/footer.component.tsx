@@ -17,10 +17,11 @@ export function Footer() {
   });
 
   useEffect(() => {
-    if (options.startPlaying) {
+    if (options.startPlaying && !playing) {
       toggle();
     }
-  }, [options.startPlaying, toggle]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [song, options.startPlaying, toggle]);
 
   if (!song) {
     return null;

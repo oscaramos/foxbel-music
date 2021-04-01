@@ -31,6 +31,8 @@
       color: white;
       line-height: 25px;
 
+      cursor: pointer;
+
       &.selected {
         color: $primary-red;
         font-weight: normal;

@@ -14,9 +14,15 @@ export function Results({ songs, onSelectSong }: Props) {
     <div className="results">
       <h5 className="results__title">Resultados</h5>
       <div className="results__list">
-        {songs.map((song) => (
-          <SongCard song={song} onSelect={() => onSelectSong(song)} />
-        ))}
+        {songs.length === 0
+          ? "Ningún resultado"
+          : songs.map((song) => (
+              <SongCard
+                key={`song-${song.id}`}
+                song={song}
+                onSelect={() => onSelectSong(song)}
+              />
+            ))}
       </div>
     </div>
   );

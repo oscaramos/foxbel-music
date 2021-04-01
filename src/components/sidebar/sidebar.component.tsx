@@ -15,10 +15,10 @@ export function Sidebar({ children }: Props) {
         <div className="sidebar__list">
           <h6 className="sidebar__title">Mi librería</h6>
           <div>
-            <div className="sidebar__item selected">Recientes</div>
+            <div className="sidebar__item">Recientes</div>
             <div className="sidebar__item">Artistas</div>
             <div className="sidebar__item">Albums</div>
-            <div className="sidebar__item">Canciones</div>
+            <div className="sidebar__item selected">Canciones</div>
             <div className="sidebar__item">Estaciones</div>
           </div>
         </div>

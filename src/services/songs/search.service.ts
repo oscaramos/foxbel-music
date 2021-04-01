@@ -12,10 +12,7 @@ const emptySearchResponse = {
   total: 0,
 };
 
-const proxyIfDevelopment =
-  process.env.NODE_ENV === "development"
-    ? "https://cors-anywhere.herokuapp.com/"
-    : "";
+const proxy = "https://cors-anywhere.herokuapp.com/";
 
 export const requestSearch = async (
   keyword: string
@@ -29,7 +26,7 @@ export const requestSearch = async (
   }
 
   const response = await axios.get<ISearchResponse>(
-    `${proxyIfDevelopment}https://api.deezer.com/search?q=track:"${keyword}"`
+    `${proxy}https://api.deezer.com/search?q=track:"${keyword}"`
   );
   return response.data;
 };

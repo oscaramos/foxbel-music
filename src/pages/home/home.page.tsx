@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 
 import { Header } from "./components/header/header.component";
 import { Results } from "./components/results/results.component";
+import { Loader } from "../../components/ui/loader/loader.component";
 import { PreviewSong } from "./components/preview-song/preview-song.component";
 
 import { ISong } from "../../services/songs/search";
@@ -26,7 +27,7 @@ function HomePage() {
       {selectedSong ? <PreviewSong song={selectedSong} /> : null}
 
       {!songs ? (
-        "cargando..."
+        <Loader center />
       ) : (
         <Results
           songs={songs}

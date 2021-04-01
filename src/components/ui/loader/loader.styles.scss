@@ -1,0 +1,19 @@
+.loader__image {
+  width: 100px;
+
+  animation: increase-decrease 1s linear infinite alternate;
+
+  &.center {
+    margin: 0 auto;
+  }
+}
+
+@keyframes increase-decrease {
+  0% {
+    transform: scale(1.0);
+  }
+
+  100% {
+    transform: scale(1.5);
+  }
+}

@@ -14,10 +14,12 @@
 .button--primary {
   background-color: $primary-red;
   color: white;
+  font-weight: 400;
 }
 
 .button--outline {
-  color: $primary-red;
+  color: white;
+  font-weight: 300;
   border: 1px solid $primary-red;
   background-color: transparent;
 }

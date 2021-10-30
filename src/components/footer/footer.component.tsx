@@ -5,14 +5,16 @@ import { PlayingSong } from "./components/playing-song/playing-song.component";
 
 import { useAudio } from "./hooks/audio.hook";
 
-import { usePlayingSong } from "../../context/playing-song.context";
+import {
+  startPlayingObservable,
+  usePlayingSong,
+} from "../../context/playing-song.context";
 
 import "./footer.styles.scss";
 
 export function Footer() {
   const {
     song,
-    options,
     stateHistory: { back, forward },
   } = usePlayingSong();
 
@@ -21,11 +23,13 @@ export function Footer() {
   });
 
   useEffect(() => {
-    if (options.startPlaying && !playing) {
-      toggle();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [song, options.startPlaying, toggle]);
+    const subscription = startPlayingObservable.subscribe(() => {
+      if (!playing) {
+        toggle();
+      }
+    });
+    return () => subscription.unsubscribe();
+  }, [playing, toggle]);
 
   if (!song) {
     return null;

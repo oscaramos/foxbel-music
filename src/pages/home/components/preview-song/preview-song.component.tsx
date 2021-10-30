@@ -55,7 +55,7 @@ export function PreviewSong({ song }: Props) {
         </div>
 
         <div className="preview-song__actions">
-          <Button onClick={() => changeSong(song)}>Reproducir</Button>
+          <Button onClick={() => handleClickPlay()}>Reproducir</Button>
           <Button variant="outline">Seguir</Button>
           <FontAwesomeIcon
             icon={faEllipsisH}

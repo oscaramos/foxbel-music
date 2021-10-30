@@ -1,8 +1,10 @@
-import React, { ReactNode, useState, createContext, useContext } from "react";
-
+import { Subject } from "rxjs";
 import { useStateWithHistory } from "react-use";
+import React, { createContext, ReactNode, useContext } from "react";
 
 import { ISong } from "../services/songs/search";
+
+export const startPlayingObservable = new Subject<void>();
 
 type ChangeSongOptions = {
   startPlaying: boolean;
@@ -11,7 +13,6 @@ type ChangeSongOptions = {
 type Return = {
   song?: ISong;
   changeSong: (newSong: ISong, options?: ChangeSongOptions) => void;
-  options: ChangeSongOptions;
   stateHistory: {
     back: () => void;
     forward: () => void;
@@ -24,19 +25,16 @@ type Props = {
   children: ReactNode;
 };
 
-const defaultOptions: ChangeSongOptions = {
-  startPlaying: false,
-};
-
 export function PlayingSongProvider({ children }: Props) {
   const [song, setSong, { back, forward }] = useStateWithHistory<
     ISong | undefined
   >();
-  const [options, setOptions] = useState<ChangeSongOptions>(defaultOptions);
 
   const onChangeSong: Return["changeSong"] = (newSong, options) => {
+    if (options?.startPlaying) {
+      startPlayingObservable.next();
+    }
     setSong(newSong);
-    setOptions(options || defaultOptions);
   };
 
   return (
@@ -44,7 +42,6 @@ export function PlayingSongProvider({ children }: Props) {
       value={{
         song,
         changeSong: onChangeSong,
-        options,
         stateHistory: {
           back,
           forward,

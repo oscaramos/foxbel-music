@@ -2,16 +2,8 @@
 
 Explore and enjoy the top songs from [deezer](https://www.deezer.com/mx/).
 
-# Motivation
-
-Technical test
-
 # Screenshots
 
-## Wireframe
-<img src="./docs/wireframe.png" alt='Wireframe Screenshot' width='800' /> 
-
-## Result
 <img src="./docs/result.png" alt='Result Screenshot' width='800' /> 
 
 

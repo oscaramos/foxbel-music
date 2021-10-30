@@ -26,6 +26,7 @@ Frontend challenge
 
 * [React](https://en.reactjs.org/) - Framework
 * [Typescript](https://www.typescriptlang.org/) - Superset of javascript
+* [Rxjs](https://rxjs.dev/) - Like lodash for events
 * [SASS](https://sass-lang.com/) - CSS preprocessor
 * [Fontawesome](https://fontawesome.com/) - Icons
 * [Music provider](https://www.deezer.com/mx/) - Api to get songssts

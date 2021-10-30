@@ -25,7 +25,10 @@ export function SongCard({ song, onSelect, onPlay }: IProps) {
           icon={faPlay}
           className="song-card__play"
           size="2x"
-          onClick={onPlay}
+          onClick={() => {
+            onPlay();
+            onSelect();
+          }}
         />
       </div>
       <div className="song-card__details" onClick={() => onSelect()}>

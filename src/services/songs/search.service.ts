@@ -12,7 +12,7 @@ const emptySearchResponse = {
   total: 0,
 };
 
-const proxy = "https://cors-anywhere.herokuapp.com/";
+const proxy = "https://cors-anywhere-oscar.herokuapp.com/";
 
 export const requestSearch = async (
   keyword: string

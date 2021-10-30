@@ -6,10 +6,6 @@ Explore and enjoy the top songs from [deezer](https://www.deezer.com/mx/).
 
 Technical test
 
-# Before running
-
-* Request access to CORS anywhere [here](https://cors-anywhere.herokuapp.com/corsdemo)
-
 # Screenshots
 
 ## Wireframe

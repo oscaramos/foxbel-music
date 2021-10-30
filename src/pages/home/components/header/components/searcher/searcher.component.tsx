@@ -15,8 +15,12 @@ type Props = {
   onSubmit: (newValue: string) => void;
 };
 
-export function Searcher({ onSubmit }: Props) {
-  const { register, handleSubmit } = useForm<FormValues>();
+export function Searcher({ value, onSubmit }: Props) {
+  const { register, handleSubmit } = useForm<FormValues>({
+    defaultValues: {
+      searcher: value,
+    },
+  });
 
   const onSubmitInternal: SubmitHandler<FormValues> = (data) => {
     onSubmit(data.searcher);

@@ -12,7 +12,7 @@ import { useSearch } from "../../services/songs/search.hook";
 import "./home.page.scss";
 
 function HomePage() {
-  const [keyword, setKeyword] = useState("");
+  const [keyword, setKeyword] = useState("we");
 
   const { songs } = useSearch({ keyword });
 

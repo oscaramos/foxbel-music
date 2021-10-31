@@ -1,4 +1,5 @@
 @import "../../../../theme/colors";
+@import "./components/song-card/song-card.styles";
 
 .results {
   .results__title {
@@ -8,9 +9,8 @@
   .results__list {
     display: grid;
     grid-template-columns: repeat(auto-fill, 160px);
-    grid-template-rows: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
     grid-column-gap: 20px;
-    grid-auto-rows: 0;
     overflow-y: hidden;
 
     max-width: 1200px;
@@ -18,5 +18,15 @@
     .song-card {
       margin-bottom: 20px;
     }
+  }
+
+  .results__loadMore {
+    position: absolute;
+    top: $image-size/2;
+    transform: translateX(50%);
+    text-align: center;
+
+    font-weight: bold;
+    cursor: pointer;
   }
 }

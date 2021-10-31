@@ -14,7 +14,7 @@ import "./home.page.scss";
 function HomePage() {
   const [keyword, setKeyword] = useState("we");
 
-  const { songs } = useSearch({ keyword });
+  const { songs, loadMore } = useSearch({ keyword });
 
   const [selectedSong, setSelectedSong] = useState<ISong | undefined>(
     undefined
@@ -32,6 +32,7 @@ function HomePage() {
         <Results
           songs={songs}
           onSelectSong={(newSong) => setSelectedSong(newSong)}
+          onLoadMore={() => loadMore()}
         />
       )}
     </Container>

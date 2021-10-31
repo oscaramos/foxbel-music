@@ -1,5 +1,5 @@
 export interface ISearchResponse {
-  data: Song[];
+  data: ISong[];
   total: number;
   next: string;
 }

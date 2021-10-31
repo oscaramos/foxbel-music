@@ -9,9 +9,10 @@ import "./results.styles.scss";
 type Props = {
   songs: ISong[];
   onSelectSong: (newSong: ISong) => void;
+  onLoadMore: () => void;
 };
 
-export function Results({ songs, onSelectSong }: Props) {
+export function Results({ songs, onSelectSong, onLoadMore }: Props) {
   const { changeSong } = usePlayingSong();
 
   const handlePlaySong = (song: ISong) => {
@@ -22,9 +23,11 @@ export function Results({ songs, onSelectSong }: Props) {
     <div className="results">
       <h5 className="results__title">Resultados</h5>
       <div className="results__list">
-        {songs.length === 0
-          ? "Ningún resultado"
-          : songs.map((song) => (
+        {songs.length === 0 ? (
+          "Ningún resultado"
+        ) : (
+          <>
+            {songs.map((song) => (
               <SongCard
                 key={`song-${song.id}`}
                 song={song}
@@ -32,6 +35,13 @@ export function Results({ songs, onSelectSong }: Props) {
                 onPlay={() => handlePlaySong(song)}
               />
             ))}
+            <div className="position-relative">
+              <div className="results__loadMore" onClick={() => onLoadMore()}>
+                Cargar más
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

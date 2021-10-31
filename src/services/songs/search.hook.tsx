@@ -1,8 +1,9 @@
-import useSWR from "swr";
+import { useCallback } from "react";
+import { flatMap, uniqBy } from "lodash";
+import useSWRInfinite from "swr/infinite";
 
-import { ISong } from "./search";
-
-import { requestSearch, transformSearch } from "./search.service";
+import { requestSearch } from "./search.service";
+import { ISearchResponse, ISong } from "./search";
 
 type Props = {
   keyword: string;
@@ -11,15 +12,36 @@ type Props = {
 type Return = {
   songs?: ISong[];
   error: any;
+  loadMore: () => void;
 };
 
 export function useSearch({ keyword }: Props): Return {
-  const { data, error } = useSWR<ISong[]>(`/api/${keyword}`, async () =>
-    transformSearch(await requestSearch(keyword))
+  const { data, size, setSize, error } = useSWRInfinite<ISearchResponse>(
+    (pageIndex, prevData) => {
+      if (pageIndex === 0) {
+        return `https://api.deezer.com/search?q=track:"${keyword}"`;
+      }
+      return prevData.next;
+    },
+    async (url: string) => await requestSearch(url),
+    {
+      revalidateFirstPage: false,
+    }
   );
 
+  const loadMore = useCallback(() => {
+    setSize(size + 1).then();
+  }, [setSize, size]);
+
   return {
-    songs: data,
+    songs:
+      (data &&
+        uniqBy(
+          flatMap(data, (item) => item.data),
+          "id"
+        )) ??
+      [],
     error: error,
+    loadMore,
   };
 }
